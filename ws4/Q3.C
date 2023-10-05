@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
 #define MAXSIZE 30
-
 void inputElements(int[], int);
 void displayElements(int[], int);
 
