@@ -6,7 +6,7 @@ int main()
 {
     int n;
 
-    printf("[Calculate sum of even or odd up to n]\n\n");
+    printf("[Calculate sum of even or odd numbers up to n]\n\n");
     printf("Enter n: ");
     scanf("%d", &n);
 
@@ -18,5 +18,5 @@ int recursiveAdd(int n)
 {
     if(n <= 0)
         return 0;
-    return (n + recursiveAdd(n-2));
+    return n + recursiveAdd(n-2);
 }
