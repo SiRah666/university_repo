@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-float findSin(int);
+float findSin(int, int, int);
 int factorial(int);
 
 int main()
@@ -16,13 +16,16 @@ int main()
 	return 0;
 }
 
-float findSin(int x, int p)
+float findSin(int x, int p, int n)
 {
 	float res;
 
 	res = 0.0;
-
-	pow(x, p)/factorial(p);
+	if(n%2 == 0)
+		res += pow(x, p)/factorial(p);
+	else
+		res -= pow(x, p)/factorial(p);
+	return findSin(x, p+2);
 }
 
 int factorial(int n)
