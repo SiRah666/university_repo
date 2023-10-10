@@ -11,7 +11,7 @@ int main()
     printf("Enter n: ");
     scanf("%d", &n);
 
-    printf("The factorial(recursive) of %d: %d\n", n, nonRecursiveFactorial(n));
+    printf("The factorial(recursive) of %d: %d\n", n, recursiveFactorial(n));
     printf("The factorial(non-recursive) of %d: %d", n, nonRecursiveFactorial(n));
     return 0;
 }

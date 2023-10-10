@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <conio.h>
 #define MAXSIZE 30
+
 void inputElements(int[], int);
 void displayElements(int[], int);
 
@@ -9,7 +9,6 @@ int main()
 	int len;
 	int arr[MAXSIZE];
 
-	clrscr();
 	printf("[Create functions to enter and display array elements]\n\n");
 	while(1)
 	{
@@ -22,7 +21,6 @@ int main()
 	}
 	inputElements(arr, len);
 	displayElements(arr, len);
-	getch();
 	return 0;
 }
 

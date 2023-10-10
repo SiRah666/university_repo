@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <math.h>
 
 void mathFunction(int[], int*, float*, float*);
@@ -9,7 +8,6 @@ int main()
 	int i, sum, arr[5];
 	float avg, sdev;
 
-	clrscr();
 	printf("[Return sum, average and standard deviation of 5 integers]\n\n");
 	for(i = 0; i < 5; ++i)
 	{
@@ -23,7 +21,6 @@ int main()
 	printf("The sum: %d\n", sum);
 	printf("The average: %.3f\n", avg);
 	printf("The standard deviation: %.3f", sdev);
-	getch();
 	return 0;
 }
 

@@ -14,22 +14,15 @@ int main() {
 }
 
 double findSin(double x, int n) {
-    double term;
+    int i;
+    double res;
 
-    if(n == 10)
-        return 0;
-    term = pow(-1, n) * pow(x, 2*n+1)/factorial(2*n+1);
-    return term + findSin(x, n+1);
+    res = 0.0;
+    for(i = 0; i < n; ++i)
+        res += pow(-1, n) * pow(x, 2*n+1)/factorial(2*n+1);
+    return res;
 }
 
-<<<<<<< HEAD
-int factorial(int n)
-{
-	if(n == 1)
-		return 1;
-	return n * factorial(n-1);
-}
-=======
 double factorial(double n) {
     if(n == 1) {
         return 1;
@@ -37,4 +30,3 @@ double factorial(double n) {
 
     return n * factorial(n - 1);
 }
->>>>>>> f74ca38facc5a66f123fe3c91409434245de8873

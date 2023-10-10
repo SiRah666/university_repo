@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #define MAXROW 15
 #define MAXCOL 30
 
@@ -11,7 +10,6 @@ int main()
 	int row, col;
 	int arr[MAXROW][MAXCOL];
 
-	clrscr();
 	printf("[Create functions to enter and display 2D-Array elements]\n\n");
 	while(1)
 	{
@@ -36,7 +34,6 @@ int main()
 
 	inputElements(arr, row, col);
 	displayElements(arr, row, col);
-	getch();
 	return 0;
 }
 

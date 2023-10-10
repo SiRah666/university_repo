@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <math.h>
 
 float area(float, float, float);
@@ -8,7 +7,6 @@ int main()
 {
 	float a, b, c;
 
-	clrscr();
 	printf("[Calculate the area of the traingle]\n\n");
 	printf("Enter side a: ");
 	scanf("%f", &a);
@@ -18,8 +16,6 @@ int main()
 	scanf("%f", &c);
 
 	printf("The area of the triangle: %.3f", area(a, b, c));
-	getch();
-
 	return 0;
 }
 
