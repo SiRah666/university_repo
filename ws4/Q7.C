@@ -32,11 +32,6 @@ double findSin(double x, double p, int n)
 		return res - findSin(x, p+2, n+1);
 }
 
-void testFunction(double x, double p)
-{
-	printf("test: %lf\n", pow(x, p));
-}
-
 int factorial(int n)
 {
 	if(n == 1)
