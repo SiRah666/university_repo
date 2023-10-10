@@ -1,40 +1,40 @@
 #include <stdio.h>
-#include <conio.h>
 #include <math.h>
 
-double findSin(double, double, int);
-int factorial(int);
+double findSin(double, int);
+double factorial(double);
 
-int main()
-{
-	int x;
+int main() {
+    double x;
 
-	clrscr();
-	printf("Enter x: ");
-	scanf("%d", &x);
-
-	printf("ans: %lf", findSin(x, 1, 1));
-	getch();
-	return 0;
+    printf("Enter angle(radians): ");
+    scanf("%lf", &x);
+    printf("sin(%.3lf) = %lf\n", x, findSin(x, 10));
+    return 0;
 }
 
-double findSin(double x, double p, int n)
-{
-	double res;
+double findSin(double x, int n) {
+    double term;
 
-	res = pow(x, p)/factorial(p);
-	if(n == 10)
-		return res;
-
-	if(n%2 == 0)
-		return res + findSin(x, p+2, n+1);
-	else
-		return res - findSin(x, p+2, n+1);
+    if(n == 10)
+        return 0;
+    term = pow(-1, n) * pow(x, 2*n+1)/factorial(2*n+1);
+    return term + findSin(x, n+1);
 }
 
+<<<<<<< HEAD
 int factorial(int n)
 {
 	if(n == 1)
 		return 1;
 	return n * factorial(n-1);
 }
+=======
+double factorial(double n) {
+    if(n == 1) {
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+>>>>>>> f74ca38facc5a66f123fe3c91409434245de8873
