@@ -9,6 +9,7 @@ int main()
 	float a, b, c;
 
 	clrscr();
+	printf("[Calculate the area of the traingle]\n\n");
 	printf("Enter side a: ");
 	scanf("%f", &a);
 	printf("Enter side b: ");
@@ -27,5 +28,5 @@ float area(float a, float b, float c)
 	float s;
 
 	s = (a+b+c) / 2.0;
-	printf("s: %f", s);
+	return sqrt(s*((s-a)*(s-b)*(s-c)));
 }
