@@ -3,6 +3,7 @@
 #include <alloc.h>
 
 struct node* createList(int);
+struct node* reverseList(struct node*);
 void displayList(struct node*);
 
 struct node
@@ -21,7 +22,7 @@ int main()
 	while(1)
 	{
 		printf("\n[Linked List Program]\n");
-		printf("1.Create\n2.Display\n3.Exit\n=> ");
+		printf("1.Create\n2.Reverse\n3.Display\n4.Exit\n=> ");
 		scanf("%d", &ch);
 		switch(ch)
 		{
@@ -31,9 +32,12 @@ int main()
 				p = createList(n);
 				break;
 			case 2:
-				displayList(p);
+				p = reverseList(p);
 				break;
 			case 3:
+				displayList(p);
+				break;
+			case 4:
 				return 0;
 			default:
 				printf("Invalid Option\n\n");
@@ -59,6 +63,25 @@ struct node* createList(int n)
 		q->next = r;
 		q = r;
 	}
+	return p;
+}
+
+struct node* reverseList(struct node *p)
+{
+	struct node *a, *b, *c;
+
+	b = p;
+	a = NULL;
+	c = b->next;
+	while(b->next != NULL)
+	{
+		b->next = a;
+		a = b;
+		b = c;
+		c = c->next;
+	}
+	b->next = a;
+	p = b;
 	return p;
 }
 
