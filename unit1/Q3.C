@@ -3,6 +3,9 @@
 #include <alloc.h>
 
 struct node* createList(int);
+struct node* insertStart(struct node*, int);
+void insertMiddle(struct node*, int);
+struct node* insertEnd(struct node*, int);
 void displayList(struct node*);
 
 struct node
@@ -18,10 +21,15 @@ int main()
 	struct node *p;
 
 	clrscr();
+	p = NULL;
 	while(1)
 	{
 		printf("\n[Linked List Program]\n");
-		printf("1.Create\n2.Display\n3.Exit\n=> ");
+		printf("1.Create\n"
+		"2.Insert at the start\n"
+		"3.Insert at the middle\n"
+		"4.Insert at the end\n"
+		"5.Display\n6.Exit\n=> ");
 		scanf("%d", &ch);
 		switch(ch)
 		{
@@ -31,9 +39,24 @@ int main()
 				p = createList(n);
 				break;
 			case 2:
-				displayList(p);
+				printf("Enter node data: ");
+				scanf("%d", &n);
+				p = insertStart(p, n);
 				break;
 			case 3:
+				printf("Enter predecessor's node data: ");
+				scanf("%d", &n);
+				insertMiddle(p, n);
+				break;
+			case 4:
+				printf("Enter node data: ");
+				scanf("%d", &n);
+				insertEnd(p, n);
+				break;
+			case 5:
+				displayList(p);
+				break;
+			case 6:
 				return 0;
 			default:
 				printf("Invalid Option\n\n");
@@ -60,6 +83,40 @@ struct node* createList(int n)
 		q = r;
 	}
 	return p;
+}
+
+void insertMiddle(struct node *p, int n)
+{
+
+}
+
+struct node* insertStart(struct node *p, int n)
+{
+	struct node *r;
+
+	r = (struct node*)malloc(sizeof(struct node));
+	r->data = n;
+	r->next = NULL;
+	if(p != NULL)
+		r->next = p;
+	return r;
+}
+
+struct node* insertEnd(struct node *p, int n)
+{
+	struct node *r;
+
+	r = (struct node*)malloc(sizeof(struct node));
+	r->data = n;
+	r->next = NULL;
+
+	if(p != NULL)
+	{
+		for(; p->next != NULL; p = p->next)
+			;
+		p->next = r;
+	}
+	return r;
 }
 
 void displayList(struct node *p)
