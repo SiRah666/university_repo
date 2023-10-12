@@ -106,7 +106,6 @@ struct node* deleteMiddle(struct node *p, int n)
 		for(q=p, r=p->next; r->data != n; q=r, r=r->next)
 			if(r == NULL)
 				break;
-
 		if(r == NULL)
 			printf("Error: node with %d doesn't exist", n);
 		else
