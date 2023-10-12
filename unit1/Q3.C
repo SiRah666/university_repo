@@ -4,7 +4,7 @@
 
 struct node* createList(int);
 struct node* insertStart(struct node*, int);
-void insertMiddle(struct node*, int);
+struct node* insertMiddle(struct node*, int, int);
 struct node* insertEnd(struct node*, int);
 void displayList(struct node*);
 
@@ -17,7 +17,7 @@ struct node
 
 int main()
 {
-	int ch, n;
+	int ch, n, d;
 	struct node *p;
 
 	clrscr();
@@ -45,13 +45,15 @@ int main()
 				break;
 			case 3:
 				printf("Enter predecessor's node data: ");
+				scanf("%d", &d);
+				printf("Enter node data: ");
 				scanf("%d", &n);
-				insertMiddle(p, n);
+				p = insertMiddle(p, d, n);
 				break;
 			case 4:
 				printf("Enter node data: ");
 				scanf("%d", &n);
-				insertEnd(p, n);
+				p = insertEnd(p, n);
 				break;
 			case 5:
 				displayList(p);
@@ -85,9 +87,28 @@ struct node* createList(int n)
 	return p;
 }
 
-void insertMiddle(struct node *p, int n)
+struct node* insertMiddle(struct node *p, int d, int n)
 {
+	struct node *q, *r;
 
+	r = (struct node*)malloc(sizeof(struct node));
+	r->data = n;
+	r->next = NULL;
+	if(p != NULL)
+	{
+		for(q = p; q->data != d; q = q->next)
+			;
+		if(q == NULL)
+			printf("Error: Node with %d doesn't exit\n", d);
+		else
+		{
+			r->next = q->next;
+			q->next = r;
+		}
+		return p;
+	}
+	else
+		return r;
 }
 
 struct node* insertStart(struct node *p, int n)
@@ -104,19 +125,20 @@ struct node* insertStart(struct node *p, int n)
 
 struct node* insertEnd(struct node *p, int n)
 {
-	struct node *r;
+	struct node *q, *r;
 
 	r = (struct node*)malloc(sizeof(struct node));
 	r->data = n;
 	r->next = NULL;
-
 	if(p != NULL)
 	{
-		for(; p->next != NULL; p = p->next)
+		for(q = p; q->next != NULL; q = q->next)
 			;
-		p->next = r;
+		q->next = r;
+		return p;
 	}
-	return r;
+	else
+		return r;
 }
 
 void displayList(struct node *p)
