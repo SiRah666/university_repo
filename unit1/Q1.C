@@ -20,7 +20,7 @@ int main()
 	clrscr();
 	while(1)
 	{
-		printf("\n[Linked List Program]\n");
+		printf("[Linked List Program]\n");
 		printf("1.Create\n2.Display\n3.Exit\n=> ");
 		scanf("%d", &ch);
 		switch(ch)
@@ -36,8 +36,9 @@ int main()
 			case 3:
 				return 0;
 			default:
-				printf("Invalid Option\n\n");
+				printf("Invalid Option\n");
 		}
+		printf("\n");
 	}
 }
 

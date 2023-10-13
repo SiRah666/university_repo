@@ -24,7 +24,7 @@ int main()
 	p = NULL;
 	while(1)
 	{
-		printf("\n[Linked List Program]\n");
+		printf("[Linked List Program]\n");
 		printf("1.Create\n"
 		"2.Insert at the start\n"
 		"3.Insert at the middle\n"
@@ -61,8 +61,9 @@ int main()
 			case 6:
 				return 0;
 			default:
-				printf("Invalid Option\n\n");
+				printf("Invalid Option\n");
 		}
+		printf("\n");
 	}
 }
 

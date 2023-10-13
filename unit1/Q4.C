@@ -31,6 +31,7 @@ int main()
 		"4.Delete from the end\n"
 		"5.Display\n6.Exit\n=> ");
 		scanf("%d", &ch);
+
 		switch(ch)
 		{
 			case 1:
@@ -69,6 +70,7 @@ struct node* createList(int n)
 	p = (struct node*)malloc(sizeof(struct node));
 	printf("Enter node data: ");
 	scanf("%d", &p->data);
+	p->next = NULL;
 	q = p;
 	for(i = 0; i < n-1; ++i)
 	{
@@ -103,11 +105,15 @@ struct node* deleteMiddle(struct node *p, int n)
 
 	if(p != NULL)
 	{
-		for(q=p, r=p->next; r->data != n; q=r, r=r->next)
-			if(r == NULL)
-				break;
-		if(r == NULL)
+		for(q=p, r=p->next; (r->data != n && r != NULL); q=r, r=r->next)
+			;
+		if((r==NULL) && (q->data!=n))
 			printf("Error: node with %d doesn't exist", n);
+		else if(q->data==n)	/* if the only node matches n */
+		{
+			free(q);
+			return NULL;
+		}
 		else
 		{
 			q->next = r->next;
