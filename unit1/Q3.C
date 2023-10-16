@@ -97,9 +97,8 @@ struct node* insertMiddle(struct node *p, int d, int n)
 	r->next = NULL;
 	if(p != NULL)
 	{
-		for(q = p; q->data != d; q = q->next)
-			if(q == NULL)
-                break;
+		for(q = p; (q!=NULL) && (q->data!=d); q = q->next)
+            ;
 		if(q == NULL)
 			printf("Error: Node with %d doesn't exit\n", d);
 		else
