@@ -72,18 +72,22 @@ struct node* createList(int n)
 	int i;
 	struct node *p, *q, *r;
 
-	p = (struct node*)malloc(sizeof(struct node));
-	printf("Enter node data: ");
-	scanf("%d", &p->data);
-	q = p;
-	for(i = 0; i < n-1; ++i)
+	p = NULL;
+	if(n != 0)
 	{
-		r = (struct node*)malloc(sizeof(struct node));
+		p = (struct node*)malloc(sizeof(struct node));
 		printf("Enter node data: ");
-		scanf("%d", &r->data);
-		r->next = NULL;
-		q->next = r;
-		q = r;
+		scanf("%d", &p->data);
+		q = p;
+		for(i = 0; i < n-1; ++i)
+		{
+			r = (struct node*)malloc(sizeof(struct node));
+			printf("Enter node data: ");
+			scanf("%d", &r->data);
+			r->next = NULL;
+			q->next = r;
+			q = r;
+		}
 	}
 	return p;
 }
@@ -98,7 +102,7 @@ struct node* insertMiddle(struct node *p, int d, int n)
 	if(p != NULL)
 	{
 		for(q = p; (q!=NULL) && (q->data!=d); q = q->next)
-            ;
+	    ;
 		if(q == NULL)
 			printf("Error: Node with %d doesn't exit\n", d);
 		else
