@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <conio.h>
-#include <math.h>
+#define AVG(x, y) (x, y)/2
 
 int main()
 {
-	double n = 3.00;
-	double p = 2.00;
+	float x, y;
 
 	clrscr();
-	printf("Ans: %lf", pow(n, p));
+	x = 3.0;
+	y = 4.0;
+	printf("The average: %f", AVG(x, y));
 	getch();
 	return 0;
 }
